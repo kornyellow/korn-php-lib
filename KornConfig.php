@@ -8,4 +8,8 @@ class KornConfig {
 
 	public static string $websiteName = "เว็บไซต์เทมเพลท";
 	public static string $websiteAuthor = "กร โรจน์รัตนปัญญา";
+	public static string $defaultTitle = "หน้าหลัก";
+	public static string $defaultDescription = "";
+	public static string $defaultAbstract = "";
+	public static string $defaultKeywords = "";
 }

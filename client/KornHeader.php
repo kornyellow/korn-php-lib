@@ -5,40 +5,40 @@ namespace libraries\korn\client;
 use libraries\korn\KornConfig;
 
 class KornHeader {
-	private static string $title       = "หน้าหลัก";
-	private static string $description = "";
-	private static string $abstract    = "";
-	private static string $keywords    = "";
+	private static string|null $title = null;
+	private static string|null $description = null;
+	private static string|null $abstract = null;
 
 	public static function getWebsiteName(): string {
 		return KornConfig::$websiteName;
 	}
 	public static function getTitle(): string {
-		if (self::$title !== 'หน้าหลัก') {
-			self::$title .= ' · '.self::getWebsiteName();
+		$title = self::$title ?? KornConfig::$defaultTitle;
+		if ($title !== 'หน้าหลัก') {
+			$title .= ' · '.self::getWebsiteName();
 		}
 		else {
-			self::$title = self::getWebsiteName();
+			$title = self::getWebsiteName();
 		}
-		return self::$title;
+		return $title;
 	}
 	public static function getDescription(): string {
-		return self::$description;
+		return self::$description ?? KornConfig::$defaultDescription;
 	}
 	public static function getAbstract(): string {
-		return self::$abstract;
+		return self::$abstract ?? KornConfig::$defaultAbstract;
 	}
 	public static function getKeywords(): string {
-		return self::$keywords;
+		return KornConfig::$defaultKeywords;
 	}
 	public static function getAuthor(): string {
 		return KornConfig::$websiteAuthor;
 	}
 
 	public static function constructHeader($title = null, $description = null, $abstract = null): void {
-		self::$title = $title ?? self::$title;
-		self::$description = $description ?? self::$description;
-		self::$abstract = $abstract ?? self::$abstract;
+		self::$title = $title ?? KornConfig::$defaultTitle;
+		self::$description = $description ?? KornConfig::$defaultDescription;
+		self::$abstract = $abstract ?? KornConfig::$defaultAbstract;
 
 		include('templates/header.php');
 	}
