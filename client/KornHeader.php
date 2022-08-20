@@ -8,6 +8,7 @@ class KornHeader {
 	private static string|null $title = null;
 	private static string|null $description = null;
 	private static string|null $abstract = null;
+	private static string|null $canonical = null;
 
 	public static function getWebsiteName(): string {
 		return KornConfig::$websiteName;
@@ -36,6 +37,13 @@ class KornHeader {
 	}
 	public static function getOwner(): string {
 		return KornConfig::$websiteOwner;
+	}
+	public static function getCanonical(): string {
+		return self::$canonical ?? "";
+	}
+
+	public static function setCanonical(string $canonical): void {
+		self::$canonical = $canonical;
 	}
 
 	public static function constructHeader($title = null, $description = null, $abstract = null): void {
