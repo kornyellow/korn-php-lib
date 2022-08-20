@@ -9,7 +9,6 @@ class KornHeader {
 	private static string $description = "";
 	private static string $abstract    = "";
 	private static string $keywords    = "";
-	private static string $author      = "กร โรจน์รัตนปัญญา";
 
 	public static function getWebsiteName(): string {
 		return KornConfig::$websiteName;
@@ -33,7 +32,7 @@ class KornHeader {
 		return self::$keywords;
 	}
 	public static function getAuthor(): string {
-		return self::$author;
+		return KornConfig::$websiteAuthor;
 	}
 
 	public static function constructHeader($title = null, $description = null, $abstract = null): void {
