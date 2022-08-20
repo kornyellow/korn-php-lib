@@ -34,6 +34,9 @@ class KornHeader {
 	public static function getAuthor(): string {
 		return KornConfig::$websiteAuthor;
 	}
+	public static function getOwner(): string {
+		return KornConfig::$websiteOwner;
+	}
 
 	public static function constructHeader($title = null, $description = null, $abstract = null): void {
 		self::$title = $title ?? KornConfig::$defaultTitle;
