@@ -14,9 +14,9 @@ class KornCookie {
 		unset($_COOKIE[$key]);
 		setcookie($key, null, -1);
 	}
-	public static function read(string $key): string {
+	public static function read(string $key): string|null {
 		if (!isset($_COOKIE[$key]))
-			return '';
+			return null;
 
 		return $_COOKIE[$key];
 	}

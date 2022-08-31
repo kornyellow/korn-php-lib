@@ -82,8 +82,8 @@ class KornNetwork {
 		return false;
 	}
 	public static function getRemoteIP(): string {
-		$clientIP = $_SERVER['HTTP_CLIENT_IP'];
-		if (filter_var($clientIP ?? '', FILTER_VALIDATE_IP))
+		$clientIP = $_SERVER['HTTP_CLIENT_IP'] ?? '';
+		if (filter_var($clientIP, FILTER_VALIDATE_IP))
 			return $clientIP;
 
 		return $_SERVER['REMOTE_ADDR'];
