@@ -15,7 +15,7 @@ class KornHeader {
 	}
 	public static function getTitle(): string {
 		$title = self::$title ?? KornConfig::$defaultTitle;
-		if ($title !== 'หน้าหลัก') {
+		if ($title !== KornConfig::$defaultTitle) {
 			$title .= ' · '.self::getWebsiteName();
 		}
 		else {
